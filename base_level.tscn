@@ -110,7 +110,27 @@ material = SubResource("StandardMaterial3D_bo3yr")
 
 [node name="Enemy" parent="Path3D" instance=ExtResource("2_5vx1e")]
 transform = Transform3D(-0.050018523, 4.631245e-07, -0.9987239, 1.421047e-14, 0.99999374, 4.6369655e-07, 0.9987211, 2.3194453e-08, -0.050018664, -30.019, 0, 5.728)
-speed = 15.0
+speed = 20.0
+
+[node name="Enemy2" parent="Path3D" instance=ExtResource("2_5vx1e")]
+transform = Transform3D(-0.04193754, 3.9631138e-07, -0.9990958, -3.4809116e-09, 0.99999374, 3.9679932e-07, 0.999093, 2.0119463e-08, -0.04193766, -25.024351, -2.113826e-06, 5.953372)
+progress = 5.0
+speed = 20.0
+
+[node name="Enemy3" parent="Path3D" instance=ExtResource("2_5vx1e")]
+transform = Transform3D(-0.036379177, 3.503544e-07, -0.99931353, -5.5600156e-09, 0.99999374, 3.507825e-07, 0.99931073, 1.8318211e-08, -0.03637928, -20.027962, -3.9834135e-06, 6.149238)
+progress = 10.0
+speed = 20.0
+
+[node name="Enemy4" parent="Path3D" instance=ExtResource("2_5vx1e")]
+transform = Transform3D(-0.030248495, 2.9966742e-07, -0.999518, -7.556446e-09, 0.99999374, 3.000279e-07, 0.9995152, 1.6628947e-08, -0.030248579, -15.030746, -5.6137756e-06, 6.3162103)
+progress = 15.0
+speed = 20.0
+
+[node name="Enemy5" parent="Path3D" instance=ExtResource("2_5vx1e")]
+transform = Transform3D(-0.02276822, 2.378206e-07, -0.9997164, -9.569827e-09, 0.99999374, 2.3809591e-07, 0.9997136, 1.4988812e-08, -0.022768283, -10.03253, -6.9652983e-06, 6.4495015)
+progress = 20.0
+speed = 20.0
 
 [node name="Base" parent="." instance=ExtResource("3_eesb3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.127884, 0, -7.9744897)

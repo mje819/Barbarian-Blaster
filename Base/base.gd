@@ -1,6 +1,21 @@
 extends Node3D
 class_name Base
 
+@onready var label_3d: Label3D = $Label3D
+@export var max_health := 5
+var health : int :
+	set(new_health):
+		health = new_health
+		label_3d.text = str(new_health) + "/" + str(max_health)
+		if health == 0:
+			await get_tree().create_timer(1).timeout
+			get_tree().reload_current_scene()
+
+func _ready() -> void:
+	health = max_health
+	label_3d.text = str(max_health) + "/" + str(max_health)
+
 func take_damage() -> void:
+	health -= 1
 	print("damage taken by base")
 	
