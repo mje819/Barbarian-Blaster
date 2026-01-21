@@ -114,7 +114,7 @@ material = SubResource("StandardMaterial3D_bo3yr")
 transform = Transform3D(-0.050018523, 4.631245e-07, -0.9987239, 1.421047e-14, 0.99999374, 4.6369655e-07, 0.9987211, 2.3194453e-08, -0.050018664, -30.019, 0, 5.728)
 
 [node name="Enemy2" parent="Path3D" instance=ExtResource("2_5vx1e")]
-transform = Transform3D(-0.041937526, 3.9631138e-07, -0.99909544, -3.4809102e-09, 0.99999374, 3.9679918e-07, 0.99909264, 2.0119463e-08, -0.041937646, -25.024351, -2.113826e-06, 5.953372)
+transform = Transform3D(-0.041937523, 3.9631138e-07, -0.9990953, -3.4809098e-09, 0.99999374, 3.9679912e-07, 0.9990925, 2.0119463e-08, -0.041937638, -25.024351, -2.113826e-06, 5.953372)
 progress = 5.0
 
 [node name="Enemy3" parent="Path3D" instance=ExtResource("2_5vx1e")]
@@ -122,7 +122,7 @@ transform = Transform3D(-0.036379177, 3.503544e-07, -0.99931353, -5.5600156e-09,
 progress = 10.0
 
 [node name="Enemy4" parent="Path3D" instance=ExtResource("2_5vx1e")]
-transform = Transform3D(-0.030248484, 2.9966742e-07, -0.9995176, -7.5564435e-09, 0.99999374, 3.0002778e-07, 0.9995148, 1.6628947e-08, -0.030248567, -15.030746, -5.6137756e-06, 6.3162103)
+transform = Transform3D(-0.03024848, 2.9966742e-07, -0.9995175, -7.556443e-09, 0.99999374, 3.0002775e-07, 0.9995147, 1.6628947e-08, -0.030248564, -15.030746, -5.6137756e-06, 6.3162103)
 progress = 15.0
 
 [node name="Enemy5" parent="Path3D" instance=ExtResource("2_5vx1e")]
@@ -131,3 +131,5 @@ progress = 20.0
 
 [node name="Base" parent="." instance=ExtResource("3_eesb3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.127884, 0, -7.9744897)
+
+[node name="TurretManager" type="Node3D" parent="."]
