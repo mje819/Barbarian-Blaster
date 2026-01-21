@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://d01unib15e15u"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cb20n"]
+height = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5kpma"]
+top_radius = 0.6
+bottom_radius = 0.6
+height = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_djkev"]
+top_radius = 0.1
+bottom_radius = 0.25
+height = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_ttsi1"]
+size = Vector3(0.12, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r754r"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="Turret" type="Node3D"]
+
+[node name="TurretBase" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_cb20n")
+
+[node name="TurretTop" type="MeshInstance3D" parent="TurretBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+mesh = SubResource("CylinderMesh_5kpma")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TurretBase/TurretTop"]
+transform = Transform3D(1, 0, 0, 0, 0.038649425, -0.99925286, 0, 0.99925286, 0.038649425, 0, 0.6241544, 0.6339853)
+mesh = SubResource("CylinderMesh_djkev")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="TurretBase/TurretTop"]
+transform = Transform3D(0.0067368993, 0.9999773, 0, -0.9999773, 0.0067368993, 0, 0, 0, 1, 0, 0.3, 0)
+mesh = SubResource("BoxMesh_ttsi1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="TurretBase/TurretTop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60006243, -0.11023742)
+mesh = SubResource("BoxMesh_r754r")
+skeleton = NodePath("../..")
