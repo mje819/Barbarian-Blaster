@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://dtcnxxofouqf8"]
 
-[ext_resource type="PackedScene" uid="uid://br3qcltvc1sgb" path="res://ray_picker_camera.tscn" id="1_3o4py"]
+[ext_resource type="PackedScene" uid="uid://br3qcltvc1sgb" path="res://RayPickerCamera/ray_picker_camera.tscn" id="1_3o4py"]
 [ext_resource type="MeshLibrary" uid="uid://c0c3djgifhbb0" path="res://MeshLibraries/space_library.tres" id="1_bo3yr"]
 [ext_resource type="PackedScene" uid="uid://csjdq42434llx" path="res://Enemy/enemy.tscn" id="2_5vx1e"]
 [ext_resource type="PackedScene" uid="uid://b6a3tfb71rtov" path="res://Base/base.tscn" id="3_eesb3"]
@@ -117,7 +117,7 @@ material = SubResource("StandardMaterial3D_bo3yr")
 transform = Transform3D(-0.050018523, 4.631245e-07, -0.9987239, 1.421047e-14, 0.99999374, 4.6369655e-07, 0.9987211, 2.3194453e-08, -0.050018664, -30.019, 0, 5.728)
 
 [node name="Enemy2" parent="Path3D" instance=ExtResource("2_5vx1e")]
-transform = Transform3D(-0.041937474, 3.9631138e-07, -0.9990942, -3.480906e-09, 0.99999374, 3.9679867e-07, 0.9990914, 2.0119463e-08, -0.04193759, -25.024351, -2.113826e-06, 5.953372)
+transform = Transform3D(-0.04193747, 3.9631138e-07, -0.99909407, -3.4809056e-09, 0.99999374, 3.9679864e-07, 0.99909127, 2.0119463e-08, -0.041937586, -25.024351, -2.113826e-06, 5.953372)
 progress = 5.0
 
 [node name="Enemy3" parent="Path3D" instance=ExtResource("2_5vx1e")]
@@ -125,7 +125,7 @@ transform = Transform3D(-0.036379177, 3.503544e-07, -0.99931353, -5.5600156e-09,
 progress = 10.0
 
 [node name="Enemy4" parent="Path3D" instance=ExtResource("2_5vx1e")]
-transform = Transform3D(-0.030248445, 2.9966742e-07, -0.99951637, -7.556434e-09, 0.99999374, 3.000274e-07, 0.99951357, 1.6628947e-08, -0.03024853, -15.030746, -5.6137756e-06, 6.3162103)
+transform = Transform3D(-0.030248443, 2.9966742e-07, -0.99951625, -7.556433e-09, 0.99999374, 3.0002735e-07, 0.99951345, 1.6628947e-08, -0.030248526, -15.030746, -5.6137756e-06, 6.3162103)
 progress = 15.0
 
 [node name="Enemy5" parent="Path3D" instance=ExtResource("2_5vx1e")]
@@ -134,6 +134,7 @@ progress = 20.0
 
 [node name="Base" parent="." instance=ExtResource("3_eesb3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.127884, 0, -7.9744897)
+max_health = 50
 
 [node name="TurretManager" type="Node3D" parent="."]
 script = ExtResource("5_ftfrf")
