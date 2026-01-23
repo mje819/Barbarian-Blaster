@@ -17,10 +17,11 @@ var health : int :
 			get_tree().reload_current_scene()
 
 func _ready() -> void:
+	#Engine.time_scale = 5
 	health = max_health
 	#label_3d.modulate = Color.WHITE
 
 func take_damage() -> void:
 	health -= 1
-	print("damage taken by base")
+	#print("damage taken by base")
 	

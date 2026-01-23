@@ -19,7 +19,7 @@ height = 1.0
 size = Vector3(0.12, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_r754r"]
-size = Vector3(0.5, 0.5, 0.5)
+size = Vector3(0.55, 0.55, 0.55)
 
 [node name="Turret" type="Node3D"]
 script = ExtResource("1_5kpma")
@@ -33,7 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 mesh = SubResource("CylinderMesh_5kpma")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TurretBase/TurretTop"]
-transform = Transform3D(1, 0, 0, 0, 0.038649425, -0.99925286, 0, 0.99925286, 0.038649425, 0, 0.6241544, 0.6339853)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.6241544, 0.6339853)
 mesh = SubResource("CylinderMesh_djkev")
 skeleton = NodePath("../..")
 
