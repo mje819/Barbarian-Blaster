@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://dtcnxxofouqf8"]
+[gd_scene load_steps=16 format=3 uid="uid://dtcnxxofouqf8"]
 
 [ext_resource type="PackedScene" uid="uid://br3qcltvc1sgb" path="res://RayPickerCamera/ray_picker_camera.tscn" id="1_3o4py"]
 [ext_resource type="MeshLibrary" uid="uid://c0c3djgifhbb0" path="res://MeshLibraries/space_library.tres" id="1_bo3yr"]
 [ext_resource type="PackedScene" uid="uid://csjdq42434llx" path="res://Enemy/enemy.tscn" id="2_5vx1e"]
+[ext_resource type="Script" uid="uid://djgitihn64ruj" path="res://Enemy/enemy_path.gd" id="3_2elnx"]
 [ext_resource type="PackedScene" uid="uid://b6a3tfb71rtov" path="res://Base/base.tscn" id="3_eesb3"]
 [ext_resource type="Script" uid="uid://bon5dpar4wygo" path="res://turret_manager.gd" id="5_ftfrf"]
 [ext_resource type="PackedScene" uid="uid://d01unib15e15u" path="res://Turret/turret.tscn" id="6_u2wky"]
@@ -65,10 +66,12 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="Path3D" type="Path3D" parent="."]
+[node name="EnemyPath" type="Path3D" parent="."]
 curve = SubResource("Curve3D_bo3yr")
+script = ExtResource("3_2elnx")
+enemy_scene = ExtResource("2_5vx1e")
 
-[node name="Road" type="CSGPolygon3D" parent="Path3D"]
+[node name="Road" type="CSGPolygon3D" parent="EnemyPath"]
 polygon = PackedVector2Array(-1, 0, -1, 0.2, 1, 0.2, 1, 0)
 mode = 2
 path_node = NodePath("..")
@@ -83,7 +86,7 @@ path_u_distance = 1.0
 path_joined = false
 material = SubResource("StandardMaterial3D_eesb3")
 
-[node name="RightEdge" type="CSGPolygon3D" parent="Path3D"]
+[node name="RightEdge" type="CSGPolygon3D" parent="EnemyPath"]
 polygon = PackedVector2Array(1.1, 0, 1.1, 0.25, 0.9, 0.25, 0.9, 0)
 mode = 2
 path_node = NodePath("..")
@@ -98,7 +101,7 @@ path_u_distance = 1.0
 path_joined = false
 material = SubResource("StandardMaterial3D_3o4py")
 
-[node name="LeftEdge" type="CSGPolygon3D" parent="Path3D"]
+[node name="LeftEdge" type="CSGPolygon3D" parent="EnemyPath"]
 polygon = PackedVector2Array(-1.1, 0, -1.1, 0.25, -0.9, 0.25, -0.9, 0)
 mode = 2
 path_node = NodePath("..")
@@ -113,29 +116,9 @@ path_u_distance = 1.0
 path_joined = false
 material = SubResource("StandardMaterial3D_bo3yr")
 
-[node name="Enemy" parent="Path3D" instance=ExtResource("2_5vx1e")]
-transform = Transform3D(-0.05001852, 4.631245e-07, -0.9987239, 1.4210469e-14, 0.99999374, 4.6369655e-07, 0.99872106, 2.3194453e-08, -0.050018664, -30.019, 0, 5.728)
-speed = 8.0
-
-[node name="Enemy2" parent="Path3D" instance=ExtResource("2_5vx1e")]
-transform = Transform3D(-0.04193744, 3.9631135e-07, -0.9990933, -3.4809031e-09, 0.9999937, 3.9679833e-07, 0.99909055, 2.0119462e-08, -0.041937552, -25.024351, -2.113826e-06, 5.953372)
-progress = 5.0
-speed = 8.0
-
-[node name="Enemy3" parent="Path3D" instance=ExtResource("2_5vx1e")]
-transform = Transform3D(-0.036379177, 3.503544e-07, -0.99931353, -5.560015e-09, 0.99999374, 3.507825e-07, 0.9993107, 1.8318211e-08, -0.03637928, -20.027962, -3.9834135e-06, 6.149238)
-progress = 10.0
-speed = 8.0
-
-[node name="Enemy4" parent="Path3D" instance=ExtResource("2_5vx1e")]
-transform = Transform3D(-0.030248418, 2.996674e-07, -0.9995155, -7.556427e-09, 0.9999937, 3.0002712e-07, 0.9995127, 1.6628947e-08, -0.030248502, -15.030746, -5.6137756e-06, 6.3162103)
-progress = 15.0
-speed = 8.0
-
-[node name="Enemy5" parent="Path3D" instance=ExtResource("2_5vx1e")]
-transform = Transform3D(-0.022768212, 2.378206e-07, -0.9997163, -9.569824e-09, 0.99999374, 2.3809588e-07, 0.9997133, 1.4988812e-08, -0.022768281, -10.03253, -6.9652983e-06, 6.4495015)
-progress = 20.0
-speed = 8.0
+[node name="Timer" type="Timer" parent="EnemyPath"]
+wait_time = 2.0
+autostart = true
 
 [node name="Base" parent="." instance=ExtResource("3_eesb3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.127884, 0, -7.9744897)
@@ -144,4 +127,6 @@ max_health = 50
 [node name="TurretManager" type="Node3D" parent="." node_paths=PackedStringArray("enemy_path")]
 script = ExtResource("5_ftfrf")
 turret = ExtResource("6_u2wky")
-enemy_path = NodePath("../Path3D")
+enemy_path = NodePath("../EnemyPath")
+
+[connection signal="timeout" from="EnemyPath/Timer" to="EnemyPath" method="_on_timer_timeout"]
