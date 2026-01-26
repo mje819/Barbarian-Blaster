@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dtcnxxofouqf8"]
+[gd_scene load_steps=18 format=3 uid="uid://dtcnxxofouqf8"]
 
 [ext_resource type="PackedScene" uid="uid://br3qcltvc1sgb" path="res://RayPickerCamera/ray_picker_camera.tscn" id="1_3o4py"]
 [ext_resource type="MeshLibrary" uid="uid://c0c3djgifhbb0" path="res://MeshLibraries/space_library.tres" id="1_bo3yr"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b6a3tfb71rtov" path="res://Base/base.tscn" id="3_eesb3"]
 [ext_resource type="Script" uid="uid://bon5dpar4wygo" path="res://turret_manager.gd" id="5_ftfrf"]
 [ext_resource type="PackedScene" uid="uid://d01unib15e15u" path="res://Turret/turret.tscn" id="6_u2wky"]
+[ext_resource type="Script" uid="uid://brmiqfbffbybp" path="res://Bank/bank.gd" id="8_bkkah"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4sal3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -37,6 +38,11 @@ albedo_color = Color(0.18039216, 0, 0, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3o4py"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bo3yr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2elnx"]
+font_size = 64
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
 
 [node name="BaseLevel" type="Node3D"]
 
@@ -128,5 +134,21 @@ max_health = 50
 script = ExtResource("5_ftfrf")
 turret = ExtResource("6_u2wky")
 enemy_path = NodePath("../EnemyPath")
+
+[node name="Bank" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("8_bkkah")
+
+[node name="Label" type="Label" parent="Bank"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Gold: 150"
+label_settings = SubResource("LabelSettings_2elnx")
 
 [connection signal="timeout" from="EnemyPath/Timer" to="EnemyPath" method="_on_timer_timeout"]
