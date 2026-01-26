@@ -5,10 +5,15 @@ class_name Enemy
 @export var speed := 10.0
 @export var max_health := 50
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 var health : int :
 	set(new_health):
+		if new_health < health:
+			animation_player.play("take_damage")
 		health = new_health
 		if health < 1:
+			#await get_tree().create_timer(.25).timeout
 			queue_free()
 
 @onready var base : Base = get_tree().get_first_node_in_group("base")

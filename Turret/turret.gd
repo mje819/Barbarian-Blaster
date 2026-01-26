@@ -3,6 +3,7 @@ extends Node3D
 
 @export var turret_range := 10.0
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var projectile = preload("res://Turret/projectile.tscn")
 var enemy_path : Path3D
@@ -21,6 +22,7 @@ func _on_timer_timeout() -> void:
 		add_child(projectile_instance)
 		projectile_instance.global_position = self.global_position
 		projectile_instance.direction = global_transform.basis.z
+		animation_player.play("fire")
 
 func find_best_target() -> PathFollow3D:
 	var farthest_progress = 0
