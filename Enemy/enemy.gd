@@ -16,7 +16,7 @@ var health : int :
 			animation_player.play("take_damage")
 		health = new_health
 		if health < 1:
-			await get_tree().create_timer(.25).timeout
+			#await get_tree().create_timer(.25).timeout
 			bank.gold += gold_for_enemy
 			queue_free()
 
@@ -25,6 +25,7 @@ var health : int :
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	health = max_health
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

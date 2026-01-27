@@ -23,5 +23,4 @@ func _ready() -> void:
 
 func take_damage() -> void:
 	health -= 1
-	#print("damage taken by base")
 	
