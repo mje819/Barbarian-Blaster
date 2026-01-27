@@ -2,8 +2,11 @@ extends PathFollow3D
 class_name Enemy
 
 ## The speed in m/s the enemy will move (reset back to 6.5)
-@export var speed := 10
+@export var speed := 8
 @export var max_health := 50
+@export var gold_for_enemy := 25
+
+@onready var bank = get_tree().get_first_node_in_group("Bank")
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -13,7 +16,8 @@ var health : int :
 			animation_player.play("take_damage")
 		health = new_health
 		if health < 1:
-			#await get_tree().create_timer(.25).timeout
+			await get_tree().create_timer(.25).timeout
+			bank.gold += gold_for_enemy
 			queue_free()
 
 @onready var base : Base = get_tree().get_first_node_in_group("base")
