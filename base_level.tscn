@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d01unib15e15u" path="res://Turret/turret.tscn" id="6_u2wky"]
 [ext_resource type="Script" uid="uid://brmiqfbffbybp" path="res://Bank/bank.gd" id="8_bkkah"]
 [ext_resource type="PackedScene" uid="uid://mkj7f0lctt2k" path="res://DifficultyManager/difficulty_manager.tscn" id="9_xjg0i"]
+[ext_resource type="PackedScene" uid="uid://cqwiydufhvhtr" path="res://UI/victory_layer.tscn" id="10_ykwpl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4sal3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -73,10 +74,9 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="EnemyPath" type="Path3D" parent="." unique_id=2064834365 node_paths=PackedStringArray("victory_layer", "difficulty_manager")]
+[node name="EnemyPath" type="Path3D" parent="." unique_id=2064834365 node_paths=PackedStringArray("difficulty_manager")]
 curve = SubResource("Curve3D_bo3yr")
 script = ExtResource("3_2elnx")
-victory_layer = NodePath("../VictoryLayer")
 enemy_scene = ExtResource("2_5vx1e")
 difficulty_manager = NodePath("../DifficultyManager")
 
@@ -156,16 +156,7 @@ label_settings = SubResource("LabelSettings_2elnx")
 
 [node name="DifficultyManager" parent="." unique_id=803187370 instance=ExtResource("9_xjg0i")]
 
-[node name="VictoryLayer" type="CanvasLayer" parent="." unique_id=2083961580]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="VictoryLayer" unique_id=630298303]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.39215687)
+[node name="VictoryLayer" parent="." unique_id=1248367803 instance=ExtResource("10_ykwpl")]
 
 [connection signal="timeout" from="EnemyPath/Timer" to="EnemyPath" method="_on_timer_timeout"]
 [connection signal="stop_spawning_enemies" from="DifficultyManager" to="EnemyPath" method="_on_difficulty_manager_stop_spawning_enemies"]
