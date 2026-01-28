@@ -14,7 +14,8 @@ var health : int :
 		
 		if health == 0:
 			await get_tree().create_timer(1).timeout
-			get_tree().reload_current_scene()
+			print("you lost")
+			#get_tree().reload_current_scene()
 
 func _ready() -> void:
 	#Engine.time_scale = 5
