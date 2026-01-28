@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://csjdq42434llx"]
+[gd_scene format=3 uid="uid://csjdq42434llx"]
 
 [ext_resource type="Script" uid="uid://dclhr4q00jc3u" path="res://Enemy/enemy.gd" id="1_2pb1h"]
 
@@ -55,29 +55,26 @@ _data = {
 &"take_damage": SubResource("Animation_2pb1h")
 }
 
-[node name="Enemy" type="PathFollow3D"]
+[node name="Enemy" type="PathFollow3D" unique_id=1628783919]
 transform = Transform3D(-0.050018873, 4.6312505e-07, -0.9987307, 1.4210569e-14, 0.99999493, 4.6369973e-07, 0.99872804, 2.3194481e-08, -0.050019007, 0, 0, 0)
 loop = false
 script = ExtResource("1_2pb1h")
-speed = 9.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1163325414]
 transform = Transform3D(0.9999999, -3.5527137e-15, 7.450581e-09, 1.7763568e-15, 0.9999999, -2.3314684e-15, -7.450581e-09, 5.406786e-14, 0.9999999, 0, 1.6, 0)
 mesh = SubResource("CapsuleMesh_7xaro")
 
-[node name="DamageHighlight" type="MeshInstance3D" parent="."]
+[node name="DamageHighlight" type="MeshInstance3D" parent="." unique_id=1228860240]
 transform = Transform3D(0.9999999, -3.5527137e-15, 7.450581e-09, 1.7763568e-15, 0.9999999, -2.3314684e-15, -7.450581e-09, 5.406786e-14, 0.9999999, 0, 1.6, 0)
 visible = false
 material_override = SubResource("StandardMaterial3D_px1sc")
 mesh = SubResource("CapsuleMesh_7xaro")
 
-[node name="EnemyArea3D" type="Area3D" parent="." groups=["enemy_area"]]
+[node name="EnemyArea3D" type="Area3D" parent="." unique_id=819690425 groups=["enemy_area"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyArea3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyArea3D" unique_id=2108881198]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 shape = SubResource("CapsuleShape3D_2pb1h")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_am0pq")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1524517536]
+libraries/ = SubResource("AnimationLibrary_am0pq")

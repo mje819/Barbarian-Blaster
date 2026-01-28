@@ -2,7 +2,7 @@ extends PathFollow3D
 class_name Enemy
 
 ## The speed in m/s the enemy will move (reset back to 6.5)
-@export var speed := 8
+@export var speed := 6.5
 @export var max_health := 50
 @export var gold_for_enemy := 25
 

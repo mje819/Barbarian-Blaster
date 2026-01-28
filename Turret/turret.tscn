@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d01unib15e15u"]
+[gd_scene format=3 uid="uid://d01unib15e15u"]
 
 [ext_resource type="Script" uid="uid://coqbxcwumauv" path="res://Turret/turret.gd" id="1_5kpma"]
 
@@ -58,38 +58,36 @@ _data = {
 &"fire": SubResource("Animation_5kpma")
 }
 
-[node name="Turret" type="Node3D"]
+[node name="Turret" type="Node3D" unique_id=820027771]
 script = ExtResource("1_5kpma")
 
-[node name="TurretBase" type="MeshInstance3D" parent="."]
+[node name="TurretBase" type="MeshInstance3D" parent="." unique_id=1886853349]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("CylinderMesh_cb20n")
 
-[node name="TurretTop" type="MeshInstance3D" parent="TurretBase"]
+[node name="TurretTop" type="MeshInstance3D" parent="TurretBase" unique_id=1022144504]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 mesh = SubResource("CylinderMesh_5kpma")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TurretBase/TurretTop"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TurretBase/TurretTop" unique_id=455760810]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.6241544, 0.6339853)
 mesh = SubResource("CylinderMesh_djkev")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="TurretBase/TurretTop"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="TurretBase/TurretTop" unique_id=1384992905]
 transform = Transform3D(0.0067368993, 0.9999773, 0, -0.9999773, 0.0067368993, 0, 0, 0, 1, 0, 0.3, 0)
 mesh = SubResource("BoxMesh_ttsi1")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="TurretBase/TurretTop"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="TurretBase/TurretTop" unique_id=406147126]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60006243, -0.11023742)
 mesh = SubResource("BoxMesh_r754r")
 skeleton = NodePath("../..")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=2131247854]
 autostart = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ttsi1")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1129542880]
+libraries/ = SubResource("AnimationLibrary_ttsi1")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
